@@ -6,11 +6,12 @@
 package com.gokaju.almundocomtest.controllers;
 
 import com.gokaju.almundocomtest.objects.Call;
+import com.gokaju.almundocomtest.objects.CallCenter;
 import com.gokaju.almundocomtest.objects.Customer;
+import com.gokaju.almundocomtest.objects.Employee;
+import com.gokaju.almundocomtest.util.EmployeeType;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import static org.junit.Assert.*;
 
 /**
@@ -18,38 +19,41 @@ import static org.junit.Assert.*;
  * @author sebas
  */
 public class DistpatcherTest {
-
+    
+    private Distpatcher distpatcher;
     public DistpatcherTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
     }
 
     @Before
     public void setUp() {
+       distpatcher = Distpatcher.getDistpatcher(10); 
+           CallCenter callCenter = distpatcher.getCallCenter();
+           // Regirtro 11 empleados de diferente tipo en diferente orden.
+            callCenter.registerEmployee(new Employee(EmployeeType.OPERADOR, "e1"));
+            callCenter.registerEmployee(new Employee(EmployeeType.OPERADOR, "e2"));
+            callCenter.registerEmployee(new Employee(EmployeeType.SUPERVISOR,"e5"));
+            callCenter.registerEmployee(new Employee(EmployeeType.SUPERVISOR,"e6"));
+            callCenter.registerEmployee(new Employee(EmployeeType.DIRECTOR, "e7")); 
+            callCenter.registerEmployee(new Employee(EmployeeType.DIRECTOR, "e8")); 
+            callCenter.registerEmployee(new Employee(EmployeeType.OPERADOR, "e3"));
+            callCenter.registerEmployee(new Employee(EmployeeType.OPERADOR, "e4"));
+            callCenter.registerEmployee(new Employee(EmployeeType.OPERADOR, "e9"));
+            callCenter.registerEmployee(new Employee(EmployeeType.OPERADOR, "e10"));
+            callCenter.registerEmployee(new Employee(EmployeeType.OPERADOR, "e11"));
     }
 
     @After
-    public void tearDown() {
+    public void destroy() throws InterruptedException {
+        distpatcher.close();
     }
 
     public void testDispatchCall() {
-        try {
+            // envio 10 llamadas a dispatchCall
             for (int i = 0; i < 10; i++) {
-                Call call = new Call(new Customer("customer"+i));
-                Distpatcher instance = Distpatcher.getDistpatcher(5);
-                instance.dispatchCall(call);
+                distpatcher.dispatchCall(new Call(new Customer("customer"+i)));
             }
-        } catch (Exception e) {
-            fail("The test case is a prototype.");
-
-        }
-
+            assertEquals("Se prueba que ya no hallan llamadas en cola --> ", false, distpatcher.getCallCenter().availableCalls());
+     
     }
 
 }
