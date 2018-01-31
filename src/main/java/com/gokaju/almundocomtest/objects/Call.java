@@ -76,13 +76,13 @@ public class Call implements Runnable {
     @Override
     public void run() {
         try {
-            Logger.getLogger(Call.class.getName()).log(Level.INFO, null,"Procesando -->"+toString() );
+            Logger.getLogger(Call.class.getName()).log(Level.INFO, "Procesando -->{0}", toString());
             this.callDuration = this.getRamdomDuration(5, 10);
             TimeUnit.SECONDS.sleep(callDuration);
             Distpatcher.getDistpatcher().getCallCenter()
                     .registerEmployee(callReceive);
             Distpatcher.getDistpatcher().assignCall();
-            Logger.getLogger(Call.class.getName()).log(Level.INFO, null,"fin -->"+toString() );
+            Logger.getLogger(Call.class.getName()).log(Level.INFO, "fin -->{0}", toString());
         } catch (InterruptedException ex) {
             Logger.getLogger(Call.class.getName()).log(Level.SEVERE, null, ex);
         }

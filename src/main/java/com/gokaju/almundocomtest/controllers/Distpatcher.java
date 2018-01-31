@@ -54,7 +54,7 @@ public class Distpatcher {
      * @param call
      */
     public void dispatchCall(Call call) {
-        Logger.getLogger(Call.class.getName()).log(Level.INFO, null,"init -->"+call);
+        Logger.getLogger(Call.class.getName()).log(Level.INFO, "init -->{0}", call);
         callCenter.addCall(call);
         assignCall();
     }
