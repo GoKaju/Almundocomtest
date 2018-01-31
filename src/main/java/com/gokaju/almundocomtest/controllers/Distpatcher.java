@@ -56,7 +56,7 @@ public class Distpatcher {
      * @param call
      */
     public void dispatchCall(Call call) {
-        System.out.println("llego -->"+call);
+        Logger.getLogger(Call.class.getName()).log(Level.INFO, null,"init -->"+call);
         callCenter.addCall(call);
         assignCall();
     }
@@ -92,28 +92,5 @@ public class Distpatcher {
         if (!executor.awaitTermination(10, TimeUnit.SECONDS)) {
             executor.shutdownNow();
         }
-    }
-      public static void main(String[] args) {
-        try {
-            
-            System.out.println("### start ####");
-            Distpatcher distpdatcher = Distpatcher.getDistpatcher(10);
-            CallCenter callCenter = Distpatcher.getDistpatcher().getCallCenter();
-            callCenter.registerEmployee(new Employee(EmployeeType.OPERADOR, "e1"));
-            callCenter.registerEmployee(new Employee(EmployeeType.OPERADOR, "e2"));
-            callCenter.registerEmployee(new Employee(EmployeeType.SUPERVISOR,"e5"));
-            callCenter.registerEmployee(new Employee(EmployeeType.SUPERVISOR,"e6"));
-            callCenter.registerEmployee(new Employee(EmployeeType.DIRECTOR, "e7"));
-            callCenter.registerEmployee(new Employee(EmployeeType.OPERADOR, "e3"));
-            callCenter.registerEmployee(new Employee(EmployeeType.OPERADOR, "e4"));
-            
-            for (int i = 0; i < 100; i++) {
-                Call c1 = new Call(new Customer("c" + i));
-                distpdatcher.dispatchCall(c1); 
-            }
-        } catch ( SecurityException ex) {
-            Logger.getLogger(Distpatcher.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
     }
 }
