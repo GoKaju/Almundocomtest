@@ -15,8 +15,8 @@ import org.junit.Before;
 import static org.junit.Assert.*;
 
 /**
- *
- * @author sebas
+ * @author @GoKaju
+ * @version 1.0 30/01/2018
  */
 public class DistpatcherTest {
     
