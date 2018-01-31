@@ -2,9 +2,7 @@ package com.gokaju.almundocomtest.controllers;
 
 import com.gokaju.almundocomtest.objects.Call;
 import com.gokaju.almundocomtest.objects.CallCenter;
-import com.gokaju.almundocomtest.objects.Customer;
 import com.gokaju.almundocomtest.objects.Employee;
-import com.gokaju.almundocomtest.util.EmployeeType;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
