@@ -13,7 +13,7 @@ haber tampoco supervisores libres debe ser atendida por un director.
 Diseñar el modelado de clases y diagramas UML necesarios
 para documentar y comunicar el diseño.
 
-> * En la carpeta anexa se encuentra el diagrama de clases.
+> * Anexo se encuentra el diagrama de clases classDiagram_Almundocomtest.png.
 
 Debe existir una clase Dispatcher encargada de manejar las llamadas, y debe contener el método dispatchCall para que las
 asigne a los empleados disponibles.
