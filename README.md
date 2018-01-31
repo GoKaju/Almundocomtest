@@ -37,13 +37,23 @@ aleatoria.
 
 Debe tener un test unitario donde lleguen 10 llamadas.
 
+> * Test en el proyecto.
+
 ##  Extras/Plus
 
 Dar alguna solución sobre qué pasa con una llamada cuando no
 hay ningún empleado libre.
 
+> * Todas la llamadas se envian a una cola, y de ahi se van tomando para su procesamiento, 
+al no haber empleados disponibles estas quedan en espera en la cola.
+
 Dar alguna solución sobre qué pasa con una llamada cuando
 entran más de 10 llamadas concurrentes.
 
+> * La clase ExecutorService posee una cola interna para manejar los procesos que superan el 
+pool de threads, entonces esas llamadas con empleado ya asignado quedan en espera hasta que se libere un thread.
+
 Agregar los tests unitarios que se crean convenientes.
 Agregar documentación de código.
+
+> *  Java doc.
