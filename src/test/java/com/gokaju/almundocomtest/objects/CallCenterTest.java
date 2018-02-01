@@ -66,7 +66,7 @@ public class CallCenterTest {
     }
 
     /**
-     * Test de addCall. Se prueba que la instancia ingrese correctamente.
+     * Test de addCall. Se prueba que la instancia  de call ingrese correctamente.
      */
     @Test
     public void testAddCall() {
