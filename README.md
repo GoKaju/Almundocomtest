@@ -18,7 +18,7 @@ para documentar y comunicar el diseño.
 Debe existir una clase Dispatcher encargada de manejar las llamadas, y debe contener el método dispatchCall para que las
 asigne a los empleados disponibles.
 
-> * Se creo la clase y el metodo, el cual recive la llamada, la 
+> * Se creo la clase y el metodo, el cual recibe la llamada, la 
 envia a una cola e invoca el metodo assingCall el cual valida la
 disponibilidad  de llamadas y empleados y las asinga segun la 
 jerarquia mencionada.
