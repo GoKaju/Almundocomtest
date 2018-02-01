@@ -4,7 +4,7 @@ package com.gokaju.almundocomtest.objects;
  * @author @GoKaju
  * @version 1.0 28/01/2018
  */
-public abstract class GeneralPerson {
+public class GeneralPerson {
 
     private String personName;
 

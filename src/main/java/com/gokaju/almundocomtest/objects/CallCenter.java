@@ -74,4 +74,9 @@ public class CallCenter {
     public boolean availableCalls() {
         return !callQueue.isEmpty();
     }
+        public int getAvaliableEmployeesSize() {
+            int sum = 0;
+            sum = employeeMap.entrySet().stream().map((entry) -> entry.getValue().size()).reduce(sum, Integer::sum);
+        return sum;
+    }
 }
