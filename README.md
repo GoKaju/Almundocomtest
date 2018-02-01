@@ -13,7 +13,7 @@ haber tampoco supervisores libres debe ser atendida por un director.
 Diseñar el modelado de clases y diagramas UML necesarios
 para documentar y comunicar el diseño.
 
-> * Anexo se encuentran en la carpeta Docs.
+> * Anexo se encuentran en la carpeta docs.
 
 Debe existir una clase Dispatcher encargada de manejar las llamadas, y debe contener el método dispatchCall para que las
 asigne a los empleados disponibles.
